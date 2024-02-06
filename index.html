@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Between Two Dates</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        width: 100%;
+        align-items: center;
+    }
+
+    #form{
+        height: 100vh;
+        background-color: navy;
+        color: #fff;
+        width: 50%;
+    }
+
+    #form h3{
+        text-align: center;
+        font-size: 3rem;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 20px;
+    }
+
+    #result{
+        height: 100vh;
+        width: 50%;
+    }
+
+    form{
+        margin: auto;
+        width: 60%;
+        position: relative;
+        top: 10%;
+    }
+
+    form p{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 5%;
+    }
+
+    form label{
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    form input, button{
+        width: 100%;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 15px;
+        outline: none;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    button:hover{
+        background-color: blue;
+        color: #ffffff;
+        border: blue solid 1px;
+    }
+
+    #result{
+        background-color: #0000001a;
+    }
+
+    #result #resultTitle{
+        text-align: center;
+        font-size: 2rem;
+        color: #000;
+        padding: 15px;
+    }
+
+    #containResult{
+        padding: 20px;
+    }
+
+    #containResult div{
+        margin-top: 3%;
+    }
+
+    #containResult strong{
+        font-size: 1.5rem;
+    }
+
+    #containResult span{
+        font-size: 1.2rem;
+    }
+
+    ul{
+        padding : 10px 0px 0px 50px;
+        line-height: 30px;
+    }
+</style>
+<body>
+    
+    <div id="form">
+        <h3>Avoir des informations entre deux dates </h3>        
+
+        <form>
+            <p>
+                <label for="dateDebut">Date de début</label>
+                <input type="date" id="dateDebut" placeholder="Date de début"> 
+            </p>
+
+            <p>
+                <label for="dateFin">Date de fin</label>
+                <input type="date" id="dateFin"> 
+            </p>
+
+            <p>
+                <button>Valider</button>
+            </p>
+        </form>
+    </div>
+
+    <div id="result">
+        <div id="resultTitle">Informations entre le <strong>24-01-2024</strong> et le <strong>24-02-2024</strong></div>
+
+        <div id="containResult">
+            <div>
+                <strong>Détail :</strong>
+                <span>0 Ans 1 Mois 1 Jours</span>
+            </div>
+
+            <div>
+                <strong>Nombre de Jours</strong>
+                <span>30</span>
+            </div>
+
+            <div>
+                <strong>Nombre de jours ouvrés :</strong>
+                <span>300</span>
+            </div>
+
+            <div>
+                <strong>Nombre de week-end :</strong>
+                <span>25</span>
+            </div>
+
+            <div>
+                <strong>Nombre de jours fériés :</strong>
+                <span>15</span>
+            </div>
+
+            <div>
+                <strong>Detail des jours fériés </strong>
+                <ul>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+                    <li>10 Janvier</li>
+
+                </ul>
+            </div>    
+        </div>
+    </div>
+
+</body>
+</html>
