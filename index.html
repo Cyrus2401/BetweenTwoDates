@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Between Two Dates</title>
+    <title>Between Two Dates</title>                                           
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
 </head>
 <style>
     *{
@@ -12,7 +19,7 @@
         padding: 0;
         box-sizing: border-box;
     }
-
+  
     body{
         height: 100vh;
         display: flex;
@@ -20,11 +27,12 @@
         margin: auto;
         width: 100%;
         align-items: center;
+        font-family: 'Open Sans', sans-serif;
     }
 
     #form{
         height: 100vh;
-        background-color: navy;
+        background-color: #bf308c;
         color: #fff;
         width: 50%;
     }
@@ -35,6 +43,8 @@
         color: #ffffff;
         font-weight: 700;
         padding: 20px;
+
+        font-family: 'Protest Riot', sans-serif;
     }
 
     #result{
@@ -72,111 +82,221 @@
     }
 
     button:hover{
-        background-color: blue;
+        background-color: #852964;
         color: #ffffff;
-        border: blue solid 1px;
+        border: #852964 solid 1px;
     }
 
     #result{
         background-color: #0000001a;
     }
 
-    #result #resultTitle{
-        text-align: center;
-        font-size: 2rem;
-        color: #000;
-        padding: 15px;
+    section {
+        width: 90%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;  
+        margin-top: 5%;      
     }
 
-    #containResult{
-        padding: 20px;
+    section h1 {
+        font-weight: 500;
+        font-size: 1.5em;
+        margin-bottom: 3%;
     }
 
-    #containResult div{
-        margin-top: 3%;
+    section h1 strong{
+        font-style: italic;
     }
 
-    #containResult strong{
-        font-size: 1.5rem;
+    summary {
+        background-color: #fff;
+        position: relative;
+        cursor: pointer;
+        padding: 1em;
+        list-style: none;     
     }
-
-    #containResult span{
-        font-size: 1.2rem;
+    summary span:last-child {
+        font-weight: 700;
+        margin-left: auto;
+    }    
+    summary:focus {
+        outline: none;
     }
-
-    ul{
-        padding : 10px 0px 0px 50px;
-        line-height: 30px;
+    summary .plus {
+        color: #289672;
     }
+    summary span:first-child {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 10px;
+        background-color: #f3e1e1; 
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.25em;
+    }
+    summary small {
+        color: #999;
+        font-size: .875em;
+    }     
+    summary strong {
+        font-weight: 700;
+    }
+    summary h3 {
+        display: flex;
+        flex-direction: column;
+    }
+    summary div {
+        display: flex;
+        align-items: center;
+    }
+    summary:hover {
+		background-color: #f2f5f9;
+	}
+    details {
+        border-bottom: 1px solid #b5bfd9;
+    }
+    details:first-of-type {
+		border-top: 5px solid #bf308c;
+	}
+    details > div {
+		padding: 2em 2em 0;
+		font-size: .875em;
+	}
+    details ul {
+		padding: 0em 2em;
+		font-size: 1em;
+        list-style-type: square;
+	}
+    details li {
+		margin-bottom: 10px;
+	}
 </style>
 <body>
     
     <div id="form">
-        <h3>Avoir des informations entre deux dates </h3>        
+        <h3>BetweenTwoDates</h3>        
 
         <form>
             <p>
                 <label for="dateDebut">Date de début</label>
-                <input type="date" id="dateDebut" placeholder="Date de début"> 
+                <input type="date" id="dateDebut" required> 
             </p>
 
             <p>
                 <label for="dateFin">Date de fin</label>
-                <input type="date" id="dateFin"> 
+                <input type="date" id="dateFin" required> 
             </p>
 
             <p>
-                <button>Valider</button>
+                <button id="validBtn">Valider</button>
             </p>
         </form>
     </div>
 
     <div id="result">
-        <div id="resultTitle">Informations entre le <strong>24-01-2024</strong> et le <strong>24-02-2024</strong></div>
-
-        <div id="containResult">
-            <div>
-                <strong>Détail :</strong>
-                <span>0 Ans 1 Mois 1 Jours</span>
-            </div>
-
-            <div>
-                <strong>Nombre de Jours</strong>
-                <span>30</span>
-            </div>
-
-            <div>
-                <strong>Nombre de jours ouvrés :</strong>
-                <span>300</span>
-            </div>
-
-            <div>
-                <strong>Nombre de week-end :</strong>
-                <span>25</span>
-            </div>
-
-            <div>
-                <strong>Nombre de jours fériés :</strong>
-                <span>15</span>
-            </div>
-
-            <div>
-                <strong>Detail des jours fériés </strong>
-                <ul>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-                    <li>10 Janvier</li>
-
-                </ul>
-            </div>    
-        </div>
+        <section>
+            <h1>Informations entre le <strong>24-01-2024</strong> et le <strong>24-02-2024</strong></h1>
+            <details>
+                <summary>
+                    <div>
+                        <h3>
+                            <strong>Détail</strong>
+                        </h3>
+                        <span>0 Ans 1 Mois 1 Jours</span>
+                    </div>
+                </summary>
+            </details>
+            <details>
+                <summary>
+                    <div>
+                        <h3>
+                            <strong>Nombre de Jours</strong>
+                        </h3>
+                        <span>02</span>
+                    </div>
+                </summary>
+            </details>
+            <details>
+                <summary>
+                    <div>
+                        <h3>
+                            <strong>Nombre de jours ouvrés</strong>
+                        </h3>
+                        <span>01</span>
+                    </div>
+                </summary>
+            </details>
+            <details>
+                <summary>
+                    <div>
+                        <h3>
+                            <strong>Nombre de week-end</strong>
+                        </h3>
+                        <span>01</span>
+                    </div>
+                </summary>
+            </details>
+            <details>
+                <summary>
+                    <div>
+                        <h3>
+                            <strong>Nombre de jours fériés</strong>
+                        </h3>
+                        <span>01</span>
+                    </div>
+                </summary>
+            </details>
+            <details>
+                <summary>
+                    <ul>
+                        <li>10 Janvier</li>
+                        <li>24 Janvier</li>
+                        <li>14 Fevrier</li>
+                        <li>15 Fevrier</li>
+                        <li>24 Fevrier</li>
+                        <li>13 Mars</li>
+                        <li>01 Avril</li>
+                        <li>01 Mai</li>
+                        <li>14 Mai</li>
+                        <li>01 Juin</li>
+                        <li>18 Juin</li>
+                        <li>22 Juin</li>
+                    </ul>
+                </summary>
+            </details>
+        </section>
     </div>
+    
+    <script>
+        let validBtn = document.getElementById('validBtn');
+        let dateDebutInput = document.getElementById('dateDebut');
+        let dateFinInput = document.getElementById('dateFin');
 
+        let dateDebut = new Date("2024-02-24")
+        let dateFin = new Date(dateFinInput.value)
+
+
+
+        validBtn.addEventListener("click", function(e) {
+
+            e.preventDefault()
+
+            console.log(dateFin)
+
+            /* if(dateDebut > dateFin){
+
+                alert(format(dateDebut, 'dd/MM/yyyy'))
+
+            }else{
+
+                alert(format(dateFin, 'dd/MM/yyyy'))
+
+            } */
+
+        })
+    </script>
 </body>
 </html>
