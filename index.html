@@ -12,168 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
-<style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-  
-    body{
-        height: 100vh;
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-        width: 100%;
-        align-items: center;
-        font-family: 'Open Sans', sans-serif;
-    }
-
-    #form{
-        height: 100vh;
-        background-color: #bf308c;
-        color: #fff;
-        width: 50%;
-    }
-
-    #form h3{
-        text-align: center;
-        font-size: 3rem;
-        color: #ffffff;
-        font-weight: 700;
-        padding: 20px;
-
-        font-family: 'Protest Riot', sans-serif;
-    }
-
-    #result{
-        height: 100vh;
-        width: 50%;
-    }
-
-    form{
-        margin: auto;
-        width: 60%;
-        position: relative;
-        top: 10%;
-    }
-
-    form p{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 5%;
-    }
-
-    form label{
-        margin-bottom: 8px;
-        font-weight: 600;
-    }
-
-    form input, button{
-        width: 100%;
-        padding: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 15px;
-        outline: none;
-        cursor: pointer;
-        font-weight: 600;
-    }
-
-    button:hover{
-        background-color: #852964;
-        color: #ffffff;
-        border: #852964 solid 1px;
-    }
-
-    #result{
-        background-color: #0000001a;
-    }
-
-    section {
-        width: 90%;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;  
-        margin-top: 5%;      
-    }
-
-    section h1 {
-        font-weight: 500;
-        font-size: 1.5em;
-        margin-bottom: 3%;
-    }
-
-    section h1 strong{
-        font-style: italic;
-    }
-
-    summary {
-        background-color: #fff;
-        position: relative;
-        cursor: pointer;
-        padding: 1em;
-        list-style: none;     
-    }
-    summary span:last-child {
-        font-weight: 700;
-        margin-left: auto;
-    }    
-    summary:focus {
-        outline: none;
-    }
-    summary .plus {
-        color: #289672;
-    }
-    summary span:first-child {
-        width: 4rem;
-        height: 4rem;
-        border-radius: 10px;
-        background-color: #f3e1e1; 
-        display: flex;
-        flex-shrink: 0;
-        align-items: center;
-        justify-content: center;
-        margin-right: 1.25em;
-    }
-    summary small {
-        color: #999;
-        font-size: .875em;
-    }     
-    summary strong {
-        font-weight: 700;
-    }
-    summary h3 {
-        display: flex;
-        flex-direction: column;
-    }
-    summary div {
-        display: flex;
-        align-items: center;
-    }
-    summary:hover {
-		background-color: #f2f5f9;
-	}
-    details {
-        border-bottom: 1px solid #b5bfd9;
-    }
-    details:first-of-type {
-		border-top: 5px solid #bf308c;
-	}
-    details > div {
-		padding: 2em 2em 0;
-		font-size: .875em;
-	}
-    details ul {
-		padding: 0em 2em;
-		font-size: 1em;
-        list-style-type: square;
-	}
-    details li {
-		margin-bottom: 10px;
-	}
-</style>
 <body>
     
     <div id="form">
@@ -198,14 +39,14 @@
 
     <div id="result">
         <section>
-            <h1>Informations entre le <strong>24-01-2024</strong> et le <strong>24-02-2024</strong></h1>
+            <h1>Informations entre le <strong id="dateDebutTitle"></strong> et le <strong id="dateFinTitle"></strong></h1>
             <details>
                 <summary>
                     <div>
                         <h3>
                             <strong>Détail</strong>
                         </h3>
-                        <span>0 Ans 1 Mois 1 Jours</span>
+                        <span id="detailBetweenTwoDatesSpan"></span>
                     </div>
                 </summary>
             </details>
@@ -215,7 +56,7 @@
                         <h3>
                             <strong>Nombre de Jours</strong>
                         </h3>
-                        <span>02</span>
+                        <span id="numbersOfDays"></span>
                     </div>
                 </summary>
             </details>
@@ -225,7 +66,7 @@
                         <h3>
                             <strong>Nombre de jours ouvrés</strong>
                         </h3>
-                        <span>01</span>
+                        <span></span>
                     </div>
                 </summary>
             </details>
@@ -235,7 +76,7 @@
                         <h3>
                             <strong>Nombre de week-end</strong>
                         </h3>
-                        <span>01</span>
+                        <span></span>
                     </div>
                 </summary>
             </details>
@@ -245,7 +86,7 @@
                         <h3>
                             <strong>Nombre de jours fériés</strong>
                         </h3>
-                        <span>01</span>
+                        <span></span>
                     </div>
                 </summary>
             </details>
@@ -269,34 +110,9 @@
             </details>
         </section>
     </div>
+
+    <div id="errorDiv"></div>
     
-    <script>
-        let validBtn = document.getElementById('validBtn');
-        let dateDebutInput = document.getElementById('dateDebut');
-        let dateFinInput = document.getElementById('dateFin');
-
-        let dateDebut = new Date("2024-02-24")
-        let dateFin = new Date(dateFinInput.value)
-
-
-
-        validBtn.addEventListener("click", function(e) {
-
-            e.preventDefault()
-
-            console.log(dateFin)
-
-            /* if(dateDebut > dateFin){
-
-                alert(format(dateDebut, 'dd/MM/yyyy'))
-
-            }else{
-
-                alert(format(dateFin, 'dd/MM/yyyy'))
-
-            } */
-
-        })
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
